@@ -29,7 +29,7 @@ export default function Hero() {
         <h1
           className={clsx(
             bentoga.className,
-            "mt-2 bg-lightyellow text-center text-[12vw] sm:text-[15vw] leading-[1.1] sm:leading-[.9]"
+            "mt-2 bg-lightyellow text-center text-[12vw] sm:text-[9vw] lg:text-[10vw] leading-[1.1] sm:leading-[.9]"
           )}
         >
           Elevating Your Digital Presence
