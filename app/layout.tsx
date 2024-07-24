@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import clsx from "clsx";
 import "./globals.css";
+import localFont from 'next/font/local'
 
-const inter = Inter({ subsets: ["latin"] });
+const bentoga = localFont({ src: '../public/fonts/bentoga/Bentoga-Thin.otf' })
+const satoshi = localFont({
+  src: [
+    {
+      path: '../public/fonts/Satoshi/Fonts/OTF/Satoshi-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={clsx(satoshi.className, "bg-lightyellow text-red")}>
+        {children}
+      </body>
     </html>
   );
 }
