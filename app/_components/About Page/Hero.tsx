@@ -23,7 +23,7 @@ const satoshi = localFont({
 export default function Hero() {
   return (
     <div className="text-lightyellow w-[100%] overflow-clip">
-        <div className="absolute">
+        <div className="absolute max-w-screen overflow-hidden">
         <MarqueeDemoVertical />
         </div>
         <div className="absolute top-0 left-0 w-full h-screen bg-black/70 overflow-hidden"/>
