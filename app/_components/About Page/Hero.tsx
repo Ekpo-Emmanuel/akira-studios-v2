@@ -22,11 +22,11 @@ const satoshi = localFont({
 });
 export default function Hero() {
   return (
-    <div className="text-lightyellow">
+    <div className="text-lightyellow w-[100%] overflow-clip">
         <div className="absolute">
         <MarqueeDemoVertical />
         </div>
-        <div className="absolute top-0 w-screen h-screen bg-black/70"/>
+        <div className="absolute top-0 left-0 w-full h-screen bg-black/70 overflow-hidden"/>
       <div className="relative px-4 lg:px-32 h-screen flex flex-col justify-center items-center py-[3rem]">
         <h1
           className={clsx(
