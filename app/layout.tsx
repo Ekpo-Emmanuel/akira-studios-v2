@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import clsx from "clsx";
 import "./globals.css";
 import localFont from 'next/font/local'
+import ScrollView from "./_components/small/ScrollView";
+import AnimatedLayout from "./_components/AnimatedLayout";
 
 const bentoga = localFont({ src: '../public/fonts/bentoga/Bentoga-Thin.otf' })
 const satoshi = localFont({
@@ -13,7 +15,6 @@ const satoshi = localFont({
     },
   ],
 })
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,7 +29,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(satoshi.className, "antialiased bg-lightyellow text-red")}>
-        {children}
+        <ScrollView />
+        <AnimatedLayout>
+          {children}
+        </AnimatedLayout>
       </body>
     </html>
   );
