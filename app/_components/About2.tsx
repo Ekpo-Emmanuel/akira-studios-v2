@@ -37,7 +37,7 @@ export default function About2() {
             </div>
             <div className="hidden md:block relative w-fit ml-auto -rotate-[20deg] transition hover:scale-90 cursor-pointer">
               <img src="/images/badge2.svg" className="size-48 rotating-image" />
-              <p className={clsx(bentoga.className, "w-full text-red absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[1.5rem] leading-[1.1]")}>
+              <p className={clsx(bentoga.className, "antialiased w-full text-red absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[1.5rem] leading-[1.1]")}>
                 Let's work <br /> together
               </p>
             </div>
@@ -52,7 +52,7 @@ export default function About2() {
             </p>
             <div className="mt-12 block md:hidden relative w-fit mx-auto -rotate-[20deg] transition hover:scale-90 cursor-pointer">
               <img src="/images/badge2.svg" className="size-48 rotating-image" />
-              <p className={clsx(bentoga.className, "w-full text-red absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[1.5rem] leading-[1.1]")}>
+              <p className={clsx(bentoga.className, "antialiased w-full text-red absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[1.5rem] leading-[1.1]")}>
                 Let's work <br /> together
               </p>
             </div>

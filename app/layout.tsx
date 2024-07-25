@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={clsx(satoshi.className, "bg-lightyellow text-red")}>
+      <body className={clsx(satoshi.className, "antialiased bg-lightyellow text-red")}>
         {children}
       </body>
     </html>

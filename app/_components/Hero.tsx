@@ -23,13 +23,13 @@ export default function Hero() {
   return (
     <div>
       <div className="px-4 lg:px-32 h-screen relative flex flex-col justify-center items-center py-[3rem]">
-        <p className={`${satoshi.className} text-[1rem] uppercase font-medium`}>
+        <p className={`${satoshi.className} antialiased text-[1rem] uppercase font-medium`}>
           We are Akira
         </p>
         <h1
           className={clsx(
             bentoga.className,
-            "mt-2 bg-lightyellow text-center text-[12vw] sm:text-[9vw] lg:text-[10vw] leading-[1.1] sm:leading-[.9]"
+            "antialiased mt-2 bg-lightyellow text-center text-[12vw] sm:text-[9vw] lg:text-[10vw] leading-[1.1] sm:leading-[.9]"
           )}
         >
           Elevating Your Digital Presence
@@ -39,7 +39,7 @@ export default function Hero() {
           <p
             className={clsx(
               bentoga.className,
-              "w-full text-lightyellow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[1.5rem] leading-[1.1]"
+              "antialiased w-full text-lightyellow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[1.5rem] leading-[1.1]"
             )}
           >
             Let's work <br /> together

@@ -37,7 +37,7 @@ export default function Services() {
                         className="grid lg:grid-cols-[.25fr_1fr_1fr] gap-[2vw] py-[3rem]"
                     >
                         <span className="font-semibold text-[1rem] leading-[1.5]">0{index + 1}</span>
-                        <p className={clsx(bentoga.className, "text-[1.8rem] leading-[1.5]")}>{service.title}</p>
+                        <p className={clsx(bentoga.className, "antialiased text-[1.8rem] leading-[1.5]")}>{service.title}</p>
                         <p className="text-[1.125rem] leading-[1.5]">{service.desc}</p>
                     </div>
                 ))}

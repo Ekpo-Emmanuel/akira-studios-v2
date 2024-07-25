@@ -31,7 +31,7 @@ export default function Hero() {
         <h1
           className={clsx(
             bentoga.className,
-            "text-center text-[24vw] sm:text-[15vw] leading-[1.1] sm:leading-[.9]"
+            "antialiased text-center text-[24vw] sm:text-[15vw] leading-[1.1] sm:leading-[.9]"
           )}
         >
           Akira
@@ -46,7 +46,7 @@ export default function Hero() {
         <div
           className={clsx(
             satoshi.className,
-            "absolute bottom-10 hidden sm:flex items-end justify-between w-full"
+            "antialiased absolute bottom-10 hidden sm:flex items-end justify-between w-full"
           )}
         >
           <div className="pl-[2.5rem]">
@@ -65,7 +65,7 @@ export default function Hero() {
               <p
                 className={clsx(
                   bentoga.className,
-                  "w-full text-lightyellow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[1rem] leading-[1.1]"
+                  "antialiased w-full text-lightyellow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[1rem] leading-[1.1]"
                 )}
               >
                 Let's work <br /> together

@@ -60,7 +60,7 @@ export default function Projects() {
                   <p
                     className={clsx(
                       bentoga.className,
-                      "text-lightyellow text-center text-[4rem] leading-[1.3]"
+                      "antialiased text-lightyellow text-center text-[4rem] leading-[1.3]"
                     )}
                   >
                     {project.title}

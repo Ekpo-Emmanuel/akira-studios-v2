@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <div className="w-full absolute z-50">
       <div className='flex items-center justify-between px-4 sm:px-[2.5rem] lg:px-28 py-10'>
-        <div className={clsx(bentoga.className, "text-[1.8rem]")}>
+        <div className={clsx(bentoga.className, "antialiased text-[1.8rem]")}>
             <span>Akira</span>
         </div>
         <div>
