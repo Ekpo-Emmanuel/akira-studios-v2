@@ -1,37 +1,89 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { MoveUpRight } from "lucide-react";
 import clsx from "clsx";
 import localFont from "next/font/local";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
-const bentoga = localFont({
-  src: "../../public/fonts/bentoga/Bentoga-Thin.otf",
-});
-
+const bentoga = localFont({ src: "../../public/fonts/bentoga/Bentoga-Thin.otf" });
 const satoshi = localFont({
   src: [
-    {
-      path: "../../public/fonts/Satoshi/Fonts/OTF/Satoshi-Medium.otf",
-      weight: "500",
-      style: "medium",
-    },
-    {
-      path: "../../public/fonts/Satoshi/Fonts/OTF/Satoshi-Light.otf",
-      weight: "300",
-      style: "light",
-    },
+    { path: "../../public/fonts/Satoshi/Fonts/OTF/Satoshi-Medium.otf", weight: "500", style: "medium" },
+    { path: "../../public/fonts/Satoshi/Fonts/OTF/Satoshi-Light.otf", weight: "300", style: "light" },
   ],
 });
+
+const projects = [
+  { title: "Prada", description: "Lorem ipsum dolor sit amet...", display_image: "/images/projects/1.jpg" },
+  { title: "Space X", description: "Lorem ipsum dolor sit amet...", display_image: "/images/projects/2.jpg" },
+  { title: "Blue moon", description: "Lorem ipsum dolor sit amet...", display_image: "/images/projects/3.jpg" },
+  { title: "Louis Vuitton", description: "Lorem ipsum dolor sit amet...", display_image: "/images/projects/4.jpg" },
+];
+
+const AnimatedTitle = ({ text } : { text: string }) => {
+  const [isAnimated, setIsAnimated] = useState(false);
+
+  useEffect(() => {
+    setIsAnimated(true);
+  }, []);
+
+  const words = text.split(' ');
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
+    }),
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
+
+  return (
+    <motion.h1
+      className="text-[2.2rem] md:text-[2.5rem] lg:text-[3rem] leading-[1.3] lg:leading-[1.5] text-center overflow-hidden"
+      variants={container}
+      initial="hidden"
+      animate={isAnimated ? "visible" : "hidden"}
+    >
+      {words.map((word, index) => (
+        <motion.span
+          key={index}
+          className="inline-block mr-[0.25em] mb-[0.25em]"
+          variants={child}
+        >
+          {word}{" "}
+        </motion.span>
+      ))}
+    </motion.h1>
+  );
+};
 
 export default function Projects() {
   return (
     <div>
       <div className="px-4 sm:px-[2.5rem] py-[3rem] md:py-24 max-w-7xl mx-auto">
-        <h1 className="text-[2.2rem] md:text-[2.5rem] lg:text-[3rem] leading-[1.3] lg:leading-[1.5] text-center">
-          To truly shine, you need a touch of brilliance. Our talented designers
-          and development experts are here to bring your digital visions to
-          life.
-        </h1>
+        <AnimatedTitle text="To truly shine, you need a touch of brilliance. Our talented designers and development experts are here to bring your digital visions to life." />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-12">
           {projects.map((project, index) => (
             <Link
@@ -83,30 +135,3 @@ export default function Projects() {
     </div>
   );
 }
-
-const projects = [
-  {
-    title: "Prada",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus",
-    display_image: "/images/projects/1.jpg",
-  },
-  {
-    title: "Space X",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus",
-    display_image: "/images/projects/2.jpg",
-  },
-  {
-    title: "Blue moon",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus",
-    display_image: "/images/projects/3.jpg",
-  },
-  {
-    title: "Louis Vuitton",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus",
-    display_image: "/images/projects/4.jpg",
-  },
-];
