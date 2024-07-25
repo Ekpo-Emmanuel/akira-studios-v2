@@ -22,7 +22,7 @@ const secondRow = images.slice(images.length / 2);
 const ImageCard = ({ img }: { img: string }) => {
   return (
     <div
-      className="group h-[70vh] w-[50vw] md:w-[30vw] overflow-clip object-contain rounded-[1rem]"
+      className="group h-[70vh] w-[48vw] md:w-[32.7vw] overflow-clip object-contain rounded-[1rem]"
       style={{
         backgroundImage: `url(${img})`,
         backgroundSize: "cover",
@@ -36,7 +36,7 @@ const ImageCard = ({ img }: { img: string }) => {
 
 export function MarqueeDemoVertical() {
   return (
-    <div className="relative flex h-screen w-full flex-row items-center justify-center overflow-hidden">
+    <div className="relative flex h-screen w-full flex-row items-center justify-center overflow-clip">
       <Marquee vertical className="[--duration:60s]">
         {firstRow.map((img, index) => (
           <ImageCard key={index} img={img} />
@@ -53,11 +53,11 @@ export function MarqueeDemoVertical() {
             <ImageCard key={index} img={img} />
             ))}
         </Marquee>
-        <Marquee vertical className="[--duration:70s]" reverse>
+        {/* <Marquee vertical className="[--duration:70s]" reverse>
             {secondRow.map((img, index) => (
             <ImageCard key={index} img={img} />
             ))}
-        </Marquee>
+        </Marquee> */}
       </div>
     </div>
   );
