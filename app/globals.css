@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow-x: hidden;
+}
 
 @keyframes rotate {
     from {
@@ -13,5 +16,5 @@
   }
   
   .rotating-image {
-    animation: rotate 13s linear infinite;
+    animation: rotate 15s linear infinite;
   }
