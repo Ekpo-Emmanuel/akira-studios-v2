@@ -50,7 +50,7 @@ export const TextRevealByWord: FC<TextRevealByWordProps> = ({
         <p
           ref={targetRef}
           className={
-            `${bentoga.className} antialiased text-center flex flex-wrap text-[1.8rem] sm:text-[5vw] lg:text-[3.5rem] leading-[1.3] md:leading-[1.2] text-red/30`
+            `antialiased text-center flex flex-wrap text-[1.8rem] sm:text-[5vw] lg:text-[3.5rem] leading-[1.3] md:leading-[1.2] text-red/30`
           }
         >
           {words.map((word, i) => {
