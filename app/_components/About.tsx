@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect } from "react";
-import clsx from "clsx";
+import React, { useEffect, useState } from "react";
 import localFont from "next/font/local";
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Link from "next/link";
 
 const bentoga = localFont({
   src: "../../public/fonts/bentoga/Bentoga-Thin.otf",
@@ -30,6 +30,8 @@ const satoshi = localFont({
 
 export default function About() {
   const controls = useAnimation();
+  const [isHovered, setIsHovered] = useState(false);
+
   const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.1,
@@ -85,7 +87,7 @@ export default function About() {
     hidden: { scaleX: 0 },
     visible: {
       scaleX: 1,
-      transition: { duration: 0.8, ease: "circOut" },
+      transition: { duration: 1.2, ease: "circOut" },
     },
   };
 
@@ -99,7 +101,10 @@ export default function About() {
         className="px-4 sm:px-[2.5rem] md:px-[3.5rem] py-[3rem] md:py-24 lg:md:py-40 max-w-[85rem] mx-auto"
       >
         <div className="grid grid-cols-1 md:grid-cols-[0.7fr_1.3fr] gap-[2rem] items-start">
-          <motion.div variants={titleVariants} className="flex items-center gap-3 uppercase">
+          <motion.div
+            variants={titleVariants}
+            className="flex items-center gap-3 uppercase"
+          >
             <motion.div
               className="size-3 bg-red rounded-full"
               initial={{ scale: 0 }}
@@ -131,6 +136,27 @@ export default function About() {
               state-of-the-art services. We created cinematic masterpieces that
               showcase products and services.
             </motion.p>
+            <Link href="/about">
+              <div
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <motion.p 
+                  variants={textVariants}
+                  className="text-[1rem] cursor-pointer"
+                >
+                  Read more
+                </motion.p>
+                <div className="mt-1 h-[2px] w-10  bg-darkyellow rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-[2px] bg-red rounded-full"
+                    initial={{ width: "20%" }}
+                    animate={{ width: isHovered ? "100%" : "20%" }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                  />
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </motion.div>
