@@ -4,6 +4,8 @@ import clsx from "clsx";
 import localFont from "next/font/local";
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Link from "next/link";
+import ContactLight from "./small/ContactLight";
 
 const bentoga = localFont({
   src: "../../public/fonts/bentoga/Bentoga-Thin.otf",
@@ -86,7 +88,7 @@ export default function About2() {
     hidden: { scaleX: 0 },
     visible: {
       scaleX: 1,
-      transition: { duration: 0.8, ease: "circOut" },
+      transition: { duration: 1.2, ease: "circOut" },
     },
   };
 
@@ -110,33 +112,21 @@ export default function About2() {
               />
               <p className={satoshi.className}>Why us</p>
             </motion.div>
-            <motion.div
-              variants={badgeVariants}
-              className="hidden md:block relative w-fit ml-auto transition hover:scale-90 cursor-pointer"
-            >
-              <img src="/images/badge2.svg" className="size-48 rotating-image" />
-              <p className={clsx(bentoga.className, "antialiased w-full text-red absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[1.5rem] leading-[1.1]")}>
-                Let's work <br /> together
-              </p>
-            </motion.div>
+            <div className="hidden md:block">
+              <ContactLight />
+            </div>
           </div>
           <div className="grid grid-cols-1 gap-[2rem] ">
             <motion.p variants={itemVariants} className="text-[1.5rem] md:text-[2rem] leading-[1.5]">
-              At Akira Studios, we transcend the ordinary to elevate your brand's visual storytelling. Our efficient and adaptable team crafts stunning videography, photography, and visual content, ensuring high-quality, cost-effective results. 
+              We transcend the ordinary to elevate your brand's visual storytelling. Our efficient and adaptable team crafts stunning videography, photography, and visual content, ensuring high-quality, cost-effective results. 
             </motion.p>
             <motion.div variants={lineVariants} className="w-full h-[1px] bg-lightyellow rounded-full" />
             <motion.p variants={itemVariants} className="text-[1.5rem] md:max-w-sm md:text-[1rem] leading-[1.5]">
               Let us captivate your audience and achieve your digital marketing goals with unparalleled excellence.
             </motion.p>
-            <motion.div
-              variants={badgeVariants}
-              className="mt-12 block md:hidden relative w-fit mx-auto transition hover:scale-90 cursor-pointer"
-            >
-              <img src="/images/badge2.svg" className="size-48 rotating-image" />
-              <p className={clsx(bentoga.className, "antialiased w-full text-red absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[1.5rem] leading-[1.1]")}>
-                Let's work <br /> together
-              </p>
-            </motion.div>
+            <div className="block md:hidden mt-12">
+              <ContactLight />
+            </div>
           </div>
         </div>
       </motion.div>
