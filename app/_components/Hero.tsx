@@ -51,40 +51,40 @@ export default function Hero() {
 
   return (
     <div>
-    <div className="px-4 lg:px-32 h-screen relative flex flex-col justify-center items-center py-[3rem]">
-      <motion.p
-        className={`${satoshi.className} antialiased text-[1rem] uppercase font-medium`}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        We are Akira
-      </motion.p>
-      <motion.h1
-        initial="hidden"
-        animate="visible"
-        variants={titleVariants}
-        className={clsx(
-          bentoga.className,
-          "antialiased mt-2 bg-lightyellow text-center text-[12vw] sm:text-[9vw] lg:text-[10vw] leading-[1.1] sm:leading-[.9]"
-        )}
-      >
-        {text.map((word, index) => (
-          <motion.span
-            key={index}
-            variants={wordVariants}
-            className="inline-block mr-[0.2em]"
-          >
-            {word}
-          </motion.span>
-        ))}
-      </motion.h1>
+      <div className="px-4 lg:px-32 h-screen relative flex flex-col justify-center items-center py-[3rem]">
+        <motion.p
+          className={`${satoshi.className} antialiased text-[1rem] uppercase font-medium`}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          We are Akira
+        </motion.p>
+        <motion.h1
+          initial="hidden"
+          animate="visible"
+          variants={titleVariants}
+          className={clsx(
+            bentoga.className,
+            "antialiased mt-2 bg-lightyellow text-center text-[12vw] sm:text-[9vw] lg:text-[10vw] leading-[1.1] sm:leading-[.9]"
+          )}
+        >
+          {text.map((word, index) => (
+            <motion.span
+              key={index}
+              variants={wordVariants}
+              className="inline-block mr-[0.2em]"
+            >
+              {word}
+            </motion.span>
+          ))}
+        </motion.h1>
         <Link href="/about">
           <motion.div
-            className="relative mt-6 md:mt-12 transition hover:scale-90 cursor-pointer"
+            className="relative mt-6 md:mt-12 cursor-pointer"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+            whileHover={{ scale: 0.9 }}
           >
             <img src="/images/badge.svg" className="size-48 rotating-image" />
             <motion.div
@@ -113,14 +113,14 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 1.2 }}
         >
-          <motion.div 
+          <motion.div
             className="pl-[2.5rem] lg:pl-32"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 1.4 }}
           >
             <div className="flex items-center gap-3">
-              <motion.div 
+              <motion.div
                 className="size-3 bg-red rounded-full"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -133,7 +133,7 @@ export default function Hero() {
               <br /> of Visuals
             </p>
           </motion.div>
-          <motion.div 
+          <motion.div
             className="pr-[2.5rem] lg:pr-32"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -146,6 +146,3 @@ export default function Hero() {
     </div>
   );
 }
-
-
-
