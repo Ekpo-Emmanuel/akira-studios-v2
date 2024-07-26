@@ -145,7 +145,7 @@ export default function Hero() {
             </p>
           </motion.div>
           <motion.div variants={bottomContentVariants} className="pr-[2.5rem]">
-            <Link href="/">
+            <Link href="/about">
               <motion.div
                 variants={badgeVariants}
                 whileHover={{ scale: 0.9 }}
