@@ -19,8 +19,8 @@ const satoshi = localFont({
 const navLinks = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
-  { title: "Services", href: "/services" },
-  { title: "Projects", href: "/projects" },
+  { title: "Services", href: "#/services" },
+  { title: "Projects", href: "#/projects" },
   { title: "Contact", href: "/contact" },
 ];
 
@@ -52,13 +52,23 @@ const Navbar2 = () => {
     open: { y: 0, opacity: 1 },
   };
 
+  const flipVariants = {
+    hover: {
+      rotateX: 360,
+      transition: {
+        duration: 0.6,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <nav className="fixed w-full z-50 top-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:pt-10 lg:px-8">
+      <div className="max-w-7xl mt-4 mx-auto px-4 sm:px-6 md:pt-10 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex-shrink-0">
             <Link href="/" className={clsx(bentoga.className, "antialiased text-[1.8rem]")}>
-              AKIRA
+              AKIRA STUDIOS
             </Link>
           </div>
           <div className="flex items-center">
@@ -96,7 +106,7 @@ const Navbar2 = () => {
                 <motion.div key={index} variants={linkVariants}>
                   <Link
                     href={link.href}
-                    className="block uppercase text-4xl sm:text-[3.5rem] font-bold text-red my-4 sm:leading-[1.2] hover:text-red/70 transition-colors duration-300"
+                    className={clsx(bentoga.className, "block uppercase text-4xl sm:text-[3.5rem] font-bold text-red my-4 sm:leading-[1.2] hover:text-red/70 transition-colors duration-300")}
                     onClick={toggleMenu}
                   >
                     {link.title}
