@@ -4,6 +4,7 @@ import "./globals.css";
 import localFont from 'next/font/local'
 import ScrollView from "./_components/small/ScrollView";
 import AnimatedLayout from "./_components/AnimatedLayout";
+import Navbar2 from "./_components/Navbar/Navbar2";
 
 const bentoga = localFont({ src: '../public/fonts/bentoga/Bentoga-Thin.otf' })
 const satoshi = localFont({
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body className={clsx(satoshi.className, "antialiased bg-lightyellow text-red")}>
         <ScrollView />
         <AnimatedLayout>
+          <Navbar2 />
           {children}
         </AnimatedLayout>
       </body>
