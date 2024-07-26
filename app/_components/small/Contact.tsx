@@ -10,7 +10,7 @@ const Contact = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <p className="text-[1.125rem] cursor-pointer">contact@akira.com</p>
+      <p className="text-[1.125rem] cursor-pointer">admin@akiramediamarketing.com</p>
       <div className="mt-1 h-[2px] w-full bg-darkyellow rounded-full overflow-hidden">
         <motion.div
           className="h-[2px] bg-red rounded-full"
