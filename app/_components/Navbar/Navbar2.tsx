@@ -19,8 +19,8 @@ const satoshi = localFont({
 const navLinks = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
-  { title: "Services", href: "#/services" },
-  { title: "Projects", href: "#/projects" },
+  // { title: "Services", href: "#/services" },
+  { title: "Works", href: "#/works" },
   { title: "Contact", href: "/contact" },
 ];
 
