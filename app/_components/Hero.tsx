@@ -50,15 +50,23 @@ export default function Hero() {
   const text = "Elevating Your Digital Presence".split(" ");
 
   return (
-    <div>
-      <div className="px-4 lg:px-32 h-screen relative flex flex-col justify-center items-center py-[3rem]">
+    <div
+      style={{
+        backgroundImage: "url(https://akira-studios.vercel.app/assets/images/hero.png)",
+        backgroundPosition: "center",
+        objectFit: "cover", 
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat"
+      }}
+    >
+      <div className="px-4 bg-black/50 text-white lg:px-32 h-screen relative flex flex-col justify-center items-center py-[3rem]">
         <motion.p
           className={`${satoshi.className} antialiased text-[1rem] uppercase font-medium`}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          We are Akira
+          Akira Studios
         </motion.p>
         <motion.h1
           initial="hidden"
@@ -66,7 +74,7 @@ export default function Hero() {
           variants={titleVariants}
           className={clsx(
             bentoga.className,
-            "antialiased mt-2 bg-lightyellow text-center text-[12vw] sm:text-[9vw] lg:text-[10vw] leading-[1.1] sm:leading-[.9]"
+            "antialiased mt-2 text-center text-[12vw] sm:text-[9vw] lg:text-[10vw] leading-[1.1] sm:leading-[.9]"
           )}
         >
           {text.map((word, index) => (
@@ -79,7 +87,7 @@ export default function Hero() {
             </motion.span>
           ))}
         </motion.h1>
-        <Link href="/about">
+        {/* <Link href="/about">
           <motion.div
             className="relative mt-6 md:mt-12 cursor-pointer"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -103,7 +111,7 @@ export default function Hero() {
               </p>
             </motion.div>
           </motion.div>
-        </Link>
+        </Link> */}
         <motion.div
           className={clsx(
             satoshi.className,
