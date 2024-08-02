@@ -3,26 +3,16 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import clsx from "clsx";
-import localFont from 'next/font/local'
+import { Anton } from 'next/font/google'
+import Contact from "../small/Contact";
+import { navLinks } from "@/lib/actions";
 
-const bentoga = localFont({ src: '../../../public/fonts/bentoga/Bentoga-Thin.otf' })
-const satoshi = localFont({
-  src: [
-    {
-      path: '../../../public/fonts/Satoshi/Fonts/OTF/Satoshi-Regular.otf',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
+const anton = Anton({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-anton',
 })
 
-const navLinks = [
-  { title: "Home", href: "/" },
-  { title: "About", href: "/about" },
-  // { title: "Services", href: "#/services" },
-  { title: "Works", href: "/works" },
-  { title: "Contact", href: "/contact" },
-];
 
 const Navbar2 = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,72 +42,107 @@ const Navbar2 = () => {
     open: { y: 0, opacity: 1 },
   };
 
-  const flipVariants = {
-    hover: {
-      rotateX: 360,
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: "easeInOut",
-      },
-    },
+        type: "spring",
+        stiffness: 100
+      }
+    }
   };
 
   return (
-    <nav className="fixed w-full z-50 top-0">
-      <div className="max-w-7xl mt-4 sm:mt-0 mx-auto px-4 sm:px-6 md:pt-10 lg:px-8">
-        <div className="flex items-center justify-between">
-          <div className="flex-shrink-0">
-            <Link href="/" className={clsx(bentoga.className, "antialiased text-[1.2rem] sm:text-[1.8rem]")}>
-              AKIRA STUDIOS
-            </Link>
-          </div>
-          <div className="flex items-center">
-            <button
-              onClick={toggleMenu}
-              className="text-red focus:outline-none focus:text-red"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+    <section>
+      <nav className="fixed w-full z-50 top-0">
+        <div className="text-dblack bg-white max-w-[90rem] mx-auto px-4 sm:px-6 sm:py-3 md:py-5 mt-4 sm:mt-0 lg:px-8">
+          <div className="flex items-center justify-between">
+            <div className="flex-shrink-0">
+              <Link href="/" className={clsx(anton.className, "antialiased uppercase text-[1.2rem] sm:text-[1.8rem]")}>
+              {/* <Link href="/" className={clsx(bentoga.className, "antialiased text-[1.2rem]")}> */}
+              {/* <img src='https://akira-studios.vercel.app/assets/images/logo_dark.png' className="h-12 w-auto" alt="Akira Studios" /> */}
+              Akira Studios
+              </Link>
+            </div>
+            <div className="flex items-center">
+              <button
+                onClick={toggleMenu}
+                className="focus:outline-none focus:text-white"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 sm:h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M4 8h16M4 16h16" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}></path>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial="closed"
-            animate="open"
-            exit="closed"
-            variants={menuVariants}
-            className="fixed inset-0 bg-lightyellow flex items-center justify-center"
-          >
-            <button
-              onClick={toggleMenu}
-              className="absolute top-4 right-4 text-red hover:text-darkyellow transition-colors duration-300"
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
+              className="fixed inset-0 bg-white flex items-end justify-start"
             >
-              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <div className="text-center">
-              {navLinks.map((link, index) => (
-                <motion.div key={index} variants={linkVariants}>
-                  <Link
-                    href={link.href}
-                    className={clsx(bentoga.className, "block uppercase text-4xl sm:text-[3.5rem] font-bold text-red my-4 sm:leading-[1.2] hover:text-red/70 transition-colors duration-300")}
-                    onClick={toggleMenu}
-                  >
-                    {link.title}
-                  </Link>
+              <div>
+                <motion.p 
+                  className={clsx(anton.className, "absolute top-4 left-4 md:top-6 md:left-10  hover:text-darkyellow transition-colors duration-300 text-[1.5rem] uppercase")}
+                >
+                  Akira Studios
+                </motion.p>
+              </div>
+              <button
+                onClick={toggleMenu}
+                className="absolute top-4 right-4 md:top-6 md:right-6  hover:text-darkyellow transition-colors duration-300 flex gap-2 items-center"
+              >
+                <span className="text-sm font-bold">
+                  CLOSE
+                </span>
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <div
+                className="hidden absolute bottom-4 right-4 md:bottom-10 md:right-6 lg:bottom-12 lg:right-28 hover:text-darkyellow transition-colors duration-300 sm:block gap-2 items-center"
+              >
+              <motion.div className="grid grid-cols-1 gap-6" variants={itemVariants}>
+                  <p className="text-[.7rem] text-[#8d8d8d]">SERVICES</p>
+                  <ul>
+                    {["photography", "Videography", "Social media", "Branding"].map((service, index) => (
+                      <motion.li 
+                        key={index} 
+                        className="uppercase"
+                        variants={itemVariants}
+                        whileHover={{ x: 10, color: "#b6b6b6" }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        {service}
+                      </motion.li>
+                    ))}
+                  </ul>
                 </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+              </div>
+              <div className="px-4 md:px-10 md:py-5">
+                {navLinks.map((link, index) => (
+                  <motion.div key={index} variants={linkVariants}>
+                    <Link
+                      href={link.href}
+                      className={clsx(anton.className, "block uppercase text-[4rem]   my-4 leading-[1.2] hover:text-darkyellow transition-colors duration-300")}
+                      onClick={toggleMenu}
+                    >
+                      {link.title}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+    </section>
   );
 };
 
