@@ -53,8 +53,8 @@ const Faq = () => {
   };
 
   return (
-    <div className="bg-darkyellow">
-      <div className="px-4 sm:px-[2.5rem] py-[5rem] md:py-24 lg:py-38 max-w-7xl mx-auto">
+    <div className="">
+      <div className="px-4 sm:px-[2.5rem] py-[5rem] md:py-24 lg:py-38 max-w-[90rem] mx-auto">
         <p
           className={`${bentoga.className} antialiased lg:text-center max-w-lg lg:mx-auto text-[2.4rem] sm:text-[3.7rem] font-medium leading-[1.2]`}
         >
@@ -64,15 +64,15 @@ const Faq = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="py-5 sm:py-[3rem] lg:py-[1.9rem] border-b border-[#dfc9b3] cursor-pointer"
+              className="py-5 sm:py-[3rem] lg:py-[1.9rem] border-b border-dblack/10 cursor-pointer"
               onClick={() => toggleAccordion(index)}
             >
               <div className={`flex flex-col ${activeIndex === index ? "gap-7" : ""}`}>
                 <div className="flex items-center gap-2 justify-between">
-                  <p className="text-[1.8125rem] text-[#621b1d]">
+                  <p className="text-[1.8125rem] ">
                     {faq.question}
                   </p>
-                  <div className="bg-lightyellow rounded-[100%] w-[3rem] h-[3rem] flex items-center justify-center text-[#484848] p-4">
+                  <div className="bg-gray-100 rounded-[100%] w-[3rem] h-[3rem] flex items-center justify-center text-[#484848] p-4">
                     {activeIndex === index ? (
                       <Minus />
                     ) : (
@@ -89,7 +89,7 @@ const Faq = () => {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="leading-[1.5] text-[1rem] text-[#621b1d]">
+                  <p className="leading-[1.5] text-[1rem] ">
                     {faq.answer}
                   </p>
                 </motion.div>
