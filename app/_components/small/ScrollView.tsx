@@ -15,7 +15,7 @@ export default function ScrollView() {
   });
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 z-50 bg-red origin-left rounded-full"
+      className="fixed top-0 left-0 right-0 h-[1px] z-50 bg-dblack origin-left rounded-full"
       style={{ scaleX }}
     />
   );
