@@ -30,7 +30,7 @@ const satoshi = localFont({
 
 export default function About() {
   const controls = useAnimation();
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovedblack, setIsHovedblack] = useState(false);
 
   const [ref, inView] = useInView({
     triggerOnce: false,
@@ -92,7 +92,7 @@ export default function About() {
   };
 
   return (
-    <motion.div className="bg-darkyellow" style={{ y }}>
+    <motion.div className="bg-white" style={{ y }}>
       <motion.div
         ref={ref}
         initial="hidden"
@@ -106,7 +106,7 @@ export default function About() {
             className="flex items-center gap-3 uppercase"
           >
             <motion.div
-              className="size-3 bg-red rounded-full"
+              className="size-3 bg-dblack rounded-full"
               initial={{ scale: 0 }}
               animate={{ scale: [0, 1.2, 1] }}
               transition={{ duration: 0.5, times: [0, 0.6, 1] }}
@@ -125,7 +125,7 @@ export default function About() {
             </motion.p>
             <motion.div
               variants={lineVariants}
-              className="w-full h-[1px] bg-red rounded-full"
+              className="w-full h-[1px] bg-dblack rounded-full"
             />
             <motion.p
               variants={textVariants}
@@ -138,8 +138,8 @@ export default function About() {
             </motion.p>
             <Link href="/about">
               <div
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                onMouseEnter={() => setIsHovedblack(true)}
+                onMouseLeave={() => setIsHovedblack(false)}
               >
                 <motion.p 
                   variants={textVariants}
@@ -149,9 +149,9 @@ export default function About() {
                 </motion.p>
                 <div className="mt-1 h-[2px] w-10  bg-darkyellow rounded-full overflow-hidden">
                   <motion.div
-                    className="h-[2px] bg-red rounded-full"
+                    className="h-[2px] bg-dblack rounded-full"
                     initial={{ width: "20%" }}
-                    animate={{ width: isHovered ? "100%" : "20%" }}
+                    animate={{ width: isHovedblack ? "100%" : "20%" }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                   />
                 </div>
