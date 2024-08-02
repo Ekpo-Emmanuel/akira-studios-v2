@@ -15,10 +15,10 @@ const config: Config = {
       },
       colors: {
         red: "#AF4042",
-        lightyellow: "#FAE9D7",
-        darkyellow: "#F1DBC5",
-        white: "#F3F3F3",
-        dblack: "#1B1B1B",
+        lightyellow: "#FFF",
+        darkyellow: "#F8BB32",
+        white: "#FDFDFD",
+        dblack: "#252525",
       },
       animation: {
         marquee: "marquee var(--duration) linear infinite",
