@@ -93,7 +93,7 @@ export default function About2() {
   };
 
   return (
-    <motion.div className="bg-red text-lightyellow" style={{ y }}>
+    <motion.div className="bg-darkyellow text-dblack" style={{ y }}>
       <motion.div
         ref={ref}
         initial="hidden"
