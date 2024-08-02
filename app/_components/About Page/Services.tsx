@@ -16,12 +16,12 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: "Marketing",
+    title: "Mission",
     desc: "Strategic prowess defines every triumphant brand odyssey. We navigate market intricacies, consumer perceptions, and your brand's essence to outline a roadmap that bridges vision and implementation."
   },
   {
-    title: "Branding",
-    desc: "Branding epitomizes crafting an identity that etches itself into memory. We mold captivating brand personalities by blending values, narratives, and design, crafting resonant experiences."
+    title: "Vision",
+    desc: "We transcend the ordinary to elevate your brand's visual storytelling. Our efficient and adaptable team crafts stunning videography, photography, and visual content, ensuring high-quality, cost-effective results"
   },
   {
     title: "Copywriting",
@@ -82,7 +82,7 @@ export default function Services() {
   };
 
   return (
-    <div className='bg-red text-lightyellow'>
+    <div className='bg-dblack text-white'>
       <div className="px-4 sm:px-[2.5rem] py-[5rem] md:py-24 lg:py-38 max-w-[79rem] mx-auto">
         <motion.div
           className="relative"
