@@ -4,6 +4,14 @@ import localFont from "next/font/local";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Anton } from 'next/font/google'
+import Navbar2 from "./_components/Navbar/Navbar2";
+
+const anton = Anton({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-anton',
+})
 
 const bentoga = localFont({ src: "../public/fonts/bentoga/Bentoga-Thin.otf" });
 const satoshi = localFont({
@@ -19,48 +27,80 @@ const satoshi = localFont({
 export default function NotFound() {
   const [isHovered, setIsHovered] = useState(false);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.3,
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
+  const letterVariants = {
+    hover: (i: number) => ({
+      y: -10,
+      transition: { delay: i * 0.05 },
+    }),
+  };
+
   return (
-    <div className="w-full h-screen flex items-center justify-center">
-      <div className="grid gap-[1rem]">
-        <h2
-          className={clsx(
-            bentoga.className,
-            "antialiased text-[8.875rem] leading-[1.1] text-center"
-          )}
-        >
-          404
-        </h2>
-        <p
-          className={clsx(
-            bentoga.className,
-            "antialiased text-[32px] leading-[36px] text-center uppercase"
-          )}
-        >
-          page not found
-        </p>
-        <span className="text-[1rem] leading-[1.5] max-w-[20rem] text-center">
-          The page you are looking for doesn't exist or has been moved
-        </span>
-        <Link href="/" className="mx-auto mt-6">
-            <div
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            
-            >
-            <p className="text-[1.125rem] cursor-pointer uppercase">
-                back home
-            </p>
-            <div className="mt-1 h-[2px] w-24 bg-darkyellow rounded-full overflow-hidden">
-                <motion.div
-                className="h-[2px] bg-red rounded-full"
-                initial={{ width: "20%" }}
-                animate={{ width: isHovered ? "100%" : "20%" }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                />
-            </div>
-            </div>
-        </Link>
-      </div>
-    </div>
+    <>
+      <Navbar2 />
+      <motion.div 
+        className="w-full h-screen flex items-center justify-center"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <div className="grid gap-[1rem] px-4 cursor-default">
+          <motion.h2
+            className={clsx(
+              anton.className,
+              "antialiased text-[5.875rem] md:text-[8.875rem] uppercase leading-[1.1] text-center"
+            )}
+            variants={itemVariants}
+            onHoverStart={() => setIsHovered(true)}
+            onHoverEnd={() => setIsHovered(false)}
+          >
+            {Array.from("404/").map((letter, index) => (
+              <motion.span
+                key={index}
+                variants={letterVariants}
+                animate={isHovered ? "hover" : ""}
+                custom={index}
+                style={{ display: 'inline-block' }}
+              >
+                {letter}
+              </motion.span>
+            ))}
+          </motion.h2>
+          <motion.p
+            className={clsx(
+              "antialiased text-[22px] leading-[36px] text-center uppercase"
+            )}
+            variants={itemVariants}
+          >
+            page not found
+          </motion.p>
+          <Link href="/" className="text-white bg-black mx-auto text-center w-fit py-2 px-5 uppercase text-[1rem]">
+            Home
+          </Link>
+        </div>
+      </motion.div>
+    </>
   );
 }
